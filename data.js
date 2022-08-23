@@ -2,9 +2,9 @@ const TAX = 0.1;
 
 const user = {
     name: "CAICK ANDRADE",
-    addressLine1: "oops",
-    addressLine2: "whoops",
-    phone: "whoops"
+    addressLine1: "Montes Escuros, Rj. Brazil 39421-111",
+    addressLine2: "Rua Um dois três, 877. São Sebastião",
+    phone: "+55 (58) 9-9222-4415"
     }
 
 const company = {
