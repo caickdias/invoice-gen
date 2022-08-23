@@ -1,51 +1,198 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Node PDF Creator</title>
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
-      integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
-      crossorigin="anonymous"
-    />
-  </head>
-  <body>
-    <h1>User List</h1>
-    <ul>
-      {{#each users}}
+    <head>
+        <title>Caick Andrade</title>    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap" rel="stylesheet"> 
+            
+    </head>
 
-      <li>Name: {{this.name}}</li>
-      <li>Age: {{this.name}}</li>
-      <br />
+    <body style="width: 200mm; font-family: 'Roboto', sans-serif; color: #030054; margin: 0 auto;">
+        <div style=" height: 100px;">
+            <div style="width: 50%; float: left;">
+                <h1 style="padding: 15px">
+                    {{ user.name }}
+                </h1>                
+            </div>
+            
+            <div style="width: 50%; float: left;">                
+                <div style="float: left; width: 30%; height: 10px;"></div>
+                <div style="float: left; width: 70%; height: 10px;">
+                    <h1 style="padding: 15px; background-color: #030054; color: white">
+                        INVOICE
+                    </h1>      
+                </div>          
+            </div>
+            
+        </div>
+        
+        <div style="width: 100%; height: 1px; background-color: gray;">                   
+        </div>
+       
+        <div style="line-height: 10px; width: 100%; text-align: center;">            
+            <p>{{ user.addressLine1 }}</p>
+            <p>{{ user.addressLine2 }}</p>
+            <p>{{ user.phone }}</p>        
+        </div>
 
-      {{/each}}
-    </ul>
+        <div style="margin-top: 60px">
+            <div style="float: left; width: 50%;">
+                <h4 style="padding-left: 15px; line-height: 0px">
+                    BILL TO:
+                </h4>
+            </div>                             
+            <div style="float: left; width: 50%;">
+                <h4 style="padding-left: 15px; line-height: 0px">
+                    INVOICE
+                </h4>
+            </div>                                         
+        </div>
 
-    <h1>Server Image</h1>
-    <img
-      style="width: 80%"
-      src="https://miro.medium.com/max/3840/1*tRp3G6ffXDMDVOvMebzYgg.jpeg"
-      class="img-fluid"
-      alt="Responsive image"
-    />
+        <div style="width: 100%; height: 2px; background-color: #030054; margin-top: 100px;">                                     
+        </div>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script
-      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
-      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
-      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
-      crossorigin="anonymous"
-    ></script>
-    <script
-      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
-      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+        <div style="line-height: 10px; padding-left: 15px;">
+            <div style="float: left; width: 50%;">
+                <p>{{ company.name }}</p>
+                <p>{{ company.addressLine1 }}</p>
+                <p>{{ company.addressLine2 }}</p>                
+            </div>                             
+            <div style="float: left; width: 50%;">                
+                <div style="float: left; width: 50%">
+                    <p>Date: </p>
+                    <p>#: </p>
+                    <p>Customer ID: </p>                
+                </div>
+
+                <div style="float: left; width: 50%">
+                    <p>{{ invoice.date }}</p>
+                    <p>{{ invoice.number }}</p>
+                    <p>{{ invoice.customerId }}</p>                
+                </div>                
+            </div>                                         
+        </div>
+
+        <div style="width: 100%; height: 3px; background-color: #030054; margin-top: 200px;">                                     
+        </div>
+
+        <div style="line-height: 10px; padding-left: 0px; ">
+            <div style="float: left; width: 55%;background-color: #030054; color: white">
+                <p style="margin-left: 15px">Description</p>               
+            </div>                             
+
+            <div style="float: left; width: 45%; text-align: start;">
+                <div style="float: left; width: 33%;background-color: #030054; color: white">
+                    <p>Rate </p>            
+                </div>
+
+                <div style="float: left; width: 33%;background-color: #030054; color: white">
+                    <p>Unity cost </p>             
+                </div>                                                                
+
+                <div style="float: left; width: 33%;background-color: #030054; color: white">
+                    <p>Amount</p>             
+                </div>
+            </div>                                                                
+        </div>
+
+        <div style="width: 100%; height: 3px; background-color: #030054; margin-top: 40px;">                                     
+        </div>
+
+        {{#each items}}
+
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%;">
+                <p>{{ this.description }}</p>                                                                                                 
+            </div>                             
+
+            <div style="float: left; width: 45%; text-align: start;">
+                <div style="float: left; width: 33%;">                         
+                    <p>{{ this.rate }}</p>                                                                                                 
+                </div>
+
+                <div style="float: left; width: 33%">
+                    <p>{{ this.unity }}</p>                                                                                                 
+                </div>                                                                
+
+                <div style="float: left; width: 33%">
+                    <p>{{ this.amount }}</p>                                                                                                 
+                </div>                
+            </div>    
+        </div>
+
+        <div style="width: 100%; height: 1px; background-color: #030054; margin-top: 60px;">                                     
+        </div>   
+
+        {{/each}}
+
+                                                                 
+      
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
+            </div>                             
+
+            <div style="float: left; width: 45%; text-align: center; height: 30px;">
+                <div style="float: left; width: 33%; height: 1px;">                                         
+                </div>
+
+                <div style="float: left; width: 33%; text-align: start;">
+                    <p>Subtotal: </p>             
+                </div>                                                                
+
+                <div style="float: left; width: 33%; text-align: start;">
+                    <p>{{ invoice.subtotal }}</p>             
+                </div>                
+            </div>    
+        </div>
+
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
+            </div>                             
+
+            <div style="float: left; width: 45%;  height: 30px;">
+                <div style="float: left; width: 33%; height: 1px;">                                         
+                </div>
+
+                <div style="float: left; width: 33%; text-align: start;">
+                    <p>Tax: </p>             
+                </div>                                                                
+
+                <div style="float: left; width: 33%; text-align: start;">
+                    <p>{{ invoice.tax }}</p>             
+                </div>                
+            </div>    
+        </div>    
+        
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
+            </div>                              
+
+            <div style="float: left; width: 45%; text-align: center; height: 30px;">
+                <div style="float: left; width: 33%; height: 1px;">                                        
+                </div>
+
+                <div style="float: left; width: 66%; height: 1px; background-color: #030054; margin-top: 20px;">                                     
+                </div>                        
+            </div>    
+        </div>
+
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
+            </div>                              
+
+            <div style="float: left; width: 45%; text-align: center;">
+                <div style="float: left; width: 33%; height: 1px;">                                         
+                </div>
+
+                <div style="float: left; width: 33%; text-align: start;">
+                    <p>Total: </p>             
+                </div>                                                                
+
+                <div style="float: left; width: 33%; text-align: start;">
+                    <p>{{ invoice.total }}</p>             
+                </div>                
+            </div>    
+        </div>          
+    </body>
 </html>
