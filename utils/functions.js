@@ -3,7 +3,9 @@ var fs = require("fs");
 var path = require("path");
 var html = fs.readFileSync(path.join(__dirname, "../template.html"), "utf8");
 
-const createPdf = ({user, companies, invoice, items}) => {
+var prompt = require('prompt-sync')();
+
+const createPdf = ({user, company, invoice, items}) => {
   
     var options = {
       format: "A4",
@@ -15,7 +17,7 @@ const createPdf = ({user, companies, invoice, items}) => {
       html: html,
       data: {
         user,
-        company: companies[0],
+        company: company,
         invoice,
         items,
       },
@@ -34,6 +36,14 @@ const createPdf = ({user, companies, invoice, items}) => {
     
 }
 
+const addCompany = () => {    
+    const name = prompt('Company name: ');
+    const addressLine1 = prompt('Company address line 1: ');
+    const addressLine2 = prompt('Company address line 2: ');
+    console.log('Company added');
+}
+
 module.exports = {
     createPdf,    
+    addCompany,
 }

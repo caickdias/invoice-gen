@@ -1,13 +1,29 @@
 const info = require('./utils/gen-data.js');
+const { user, companies, invoice, items } = info;
 
-const { createPdf } = require('./utils/functions.js');
+const { createPdf, addCompany } = require('./utils/functions.js');
 
-//console.log(process.argv.slice(2));
-//console.log(items)
+const SHOW_COMPANIES = 'showCompanies';
+const ADD_COMPANY = 'addCompany';
 
-const handleArgs = () => {
+const handleArgs = (arg) => {
+  const command = getCommand(arg.join());
   
+  switch(command){
+    case SHOW_COMPANIES:
+      console.log(companies);
+      break;
+    case ADD_COMPANY:
+      addCompany();
+      break;
+  }
+
 }
 
-handleArgs();
-createPdf(info);
+const getCommand = (command) => {
+  if(command == '-c' || command == '--companies') return SHOW_COMPANIES;
+  if(command == '-a' || command == '--add-company') return ADD_COMPANY;
+}
+
+handleArgs(process.argv.slice(2));
+//createPdf(info);
