@@ -3,7 +3,10 @@ var fs = require("fs");
 var path = require("path");
 var html = fs.readFileSync(path.join(__dirname, "./template.html"), "utf8");
 
-const { user, company, invoice, items } = require('./data.js');
+const { user, companies, invoice, items } = require('./data.js');
+
+//console.log(process.argv.slice(2));
+console.log(items)
 
 var options = {
   format: "A4",
@@ -15,7 +18,7 @@ var document = {
   html: html,
   data: {
     user,
-    company,
+    company: companies[0],
     invoice,
     items,
   },

@@ -1,57 +1,30 @@
 var yaml_config = require('node-yaml-config');
-
 var config = yaml_config.load(__dirname + '/config.yml');
 
-const TAX = 0.1;
-
 const user = {
-    name: config.name,
-    addressLine1: "Montes Escuros, Rj. Brazil 39421-111",
-    addressLine2: "Rua Um dois três, 877. São Sebastião",
-    phone: "+55 (58) 9-9222-4415"
-    }
-
-const company = {
-    name: "COMPANY NAME INC.",
-    addressLine1: "1704 Ironwood Dr #22",
-    addressLine2: "Fairborn, Ohio(OH), 45324",
+    name: config.user.name,
+    addressLine1: config.user.addressLine1,
+    addressLine2: config.user.addressLine2,
+    phone: config.user.phone
 }
 
-const items = [
-    {
-        description: "Working Project, working details",
-        rate: 10,
-        unity: 100,        
-        amount: function() {
-            return this.unity * this.rate;
-        },
-    },
-    {
-        description: "asdads",
-        rate: 110,
-        unity: 130,        
-        amount: function() {
-            return this.unity * this.rate;
-        },
-    },
-    {
-        description: "OPAAA",
-        rate: 220,
-        unity: 40,        
-        amount: function() {
-            return this.unity * this.rate;
-        },
-    }
-]
+const companies = config.companies;
 
-const subtotal = items.reduce((total, item) => total + item.amount(), 0);  
-const tax = subtotal * TAX;
-const total = subtotal + tax;
+const items = config.items.map(item => (
+    {
+        description: item.description,
+        rate: item.rate,
+        unity: item.unity,        
+        amount: item.rate * item.unity,
+    }));
+
+const subtotal = items.reduce((total, item) => total + item.amount, 0);  
+const tax = (subtotal * (config.invoice.tax/100)).toFixed(2);
+const total = subtotal + parseFloat(tax);
 
 const invoice = {
     date: "Aug 23, 2022",
-    number: "ADO1098S0ADKL",
-    customerId: 5,
+    number: "ADO1098S0ADKL",    
     subtotal,
     tax,
     total,
@@ -59,7 +32,7 @@ const invoice = {
 
 module.exports = {
     user,
-    company,
+    companies,
     invoice,
     items
 }

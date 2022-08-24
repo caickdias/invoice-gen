@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "node-yaml-config": "^1.0.0",
-    "pdf-creator-node": "^2.3.5"
+    "pdf-creator-node": "^2.3.5"    
   }
 }

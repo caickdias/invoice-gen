@@ -1,1 +1,33 @@
-name: CAICK DIASab
+default:
+  user:
+    name: AGORA VAaI
+    addressLine1: Montes Escuros, Rj. Brazil 39421-111
+    addressLine2: Rua Um dois três, 877. São Sebastião
+    phone: +55 (58) 9-9222-4415
+  companies:
+    - id: 1
+      name: COMPANY NAME INC.
+      addressLine1: 1704 Ironwood Dr 22
+      addressLine2: Fairborn, Ohio(OH), 45324
+    - id: 2
+      name: NAME INC.
+      addressLine1: 12704 Wood 44
+      addressLine2: Born, Cal, 214
+    - id: 3
+      name: HAIL INC.
+      addressLine1: 1704 Copper Sa
+      addressLine2: Alio, Aoal, 3412
+  items:
+    - description: "Workding Project, working details"
+      rate: 10
+      unity: 100       
+    - description: "asdaddds"
+      rate: 110
+      unity: 130       
+    - description: "OPAdAA"
+      rate: 220
+      unity: 40       
+  invoice:
+      date: Aug 23, 2022
+      number: ADO1098S0ADKL
+      tax: 7 #7 == 7%     
