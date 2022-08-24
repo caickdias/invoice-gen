@@ -2,13 +2,14 @@
   "name": "invoice",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",  
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Caick Andrade",
   "license": "ISC",
   "dependencies": {
+    "node-yaml-config": "^1.0.0",
     "pdf-creator-node": "^2.3.5"
   }
 }

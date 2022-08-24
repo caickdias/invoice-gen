@@ -1,7 +1,11 @@
+var yaml_config = require('node-yaml-config');
+
+var config = yaml_config.load(__dirname + '/config.yml');
+
 const TAX = 0.1;
 
 const user = {
-    name: "CAICK ANDRADE",
+    name: config.name,
     addressLine1: "Montes Escuros, Rj. Brazil 39421-111",
     addressLine2: "Rua Um dois três, 877. São Sebastião",
     phone: "+55 (58) 9-9222-4415"
@@ -52,6 +56,7 @@ const invoice = {
     tax,
     total,
 }
+
 module.exports = {
     user,
     company,
