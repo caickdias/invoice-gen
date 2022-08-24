@@ -32,6 +32,16 @@ npm install
 npm start
 ```
 
+<<<<<<< HEAD
+=======
+## Arguments
+
+```
+(-c || --companies) to list all companies
+(-a || --add-company) to add a new company via CLI
+```
+
+>>>>>>> 0b01d2e (fixing readme)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
