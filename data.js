@@ -23,8 +23,8 @@ const tax = (subtotal * (config.invoice.tax/100)).toFixed(2);
 const total = subtotal + parseFloat(tax);
 
 const invoice = {
-    date: "Aug 23, 2022",
-    number: "ADO1098S0ADKL",    
+    date: config.invoice.date,
+    number: config.invoice.number,    
     subtotal,
     tax,
     total,
