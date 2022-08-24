@@ -8,6 +8,7 @@ const ADD_COMPANY = 'addCompany';
 const CREATE_PDF_DEFAULT = 'createPdfDefault';
 const CREATE_PDF_COMPANY = 'createPdfCompany';
 const TOO_MANY_ARGUMENTS = 'tooManyArguments';
+const DELETE_COMPANY = 'deleteCompany';
 
 const handleArgs = (arg) => {
   const command = getCommand(arg);
@@ -27,8 +28,12 @@ const handleArgs = (arg) => {
       });
       break;
     case CREATE_PDF_COMPANY:
-      console.log('id');
-      break;
+      const companyId = parseInt(arg.join());      
+      createPdf({
+        ...info,
+        company: companies.find(company => company.id == companyId) || companies[0],
+      });
+      break;      
     case TOO_MANY_ARGUMENTS:
       console.log('Too many arguments');
       break;
@@ -38,6 +43,7 @@ const handleArgs = (arg) => {
 
 const getCommand = (command) => {
   if(command.length > 1) return TOO_MANY_ARGUMENTS;
+  if(/^\d+$/.test(command)) return CREATE_PDF_COMPANY;
   if(command == '') return CREATE_PDF_DEFAULT;
   if(command == '-c' || command == '--companies') return SHOW_COMPANIES;
   if(command == '-a' || command == '--add-company') return ADD_COMPANY;
