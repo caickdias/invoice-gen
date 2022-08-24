@@ -3,7 +3,7 @@ const { user, companies, invoice, items } = info;
 
 const { createPdf, addCompany } = require('./utils/functions.js');
 
-const SHOW_COMPANIES = 'showCompanies';
+const LIST_COMPANIES = 'showCompanies';
 const ADD_COMPANY = 'addCompany';
 const CREATE_PDF_DEFAULT = 'createPdfDefault';
 const CREATE_PDF_COMPANY = 'createPdfCompany';
@@ -15,7 +15,7 @@ const handleArgs = (arg) => {
   let defaultId = 0;
   
   switch(command){
-    case SHOW_COMPANIES:
+    case LIST_COMPANIES:
       console.log(companies);
       break;
     case ADD_COMPANY:
@@ -37,6 +37,9 @@ const handleArgs = (arg) => {
     case TOO_MANY_ARGUMENTS:
       console.log('Too many arguments');
       break;
+    default:
+      console.log('opa');
+      break;
   }
 
 }
@@ -45,7 +48,7 @@ const getCommand = (command) => {
   if(command.length > 1) return TOO_MANY_ARGUMENTS;
   if(/^\d+$/.test(command)) return CREATE_PDF_COMPANY;
   if(command == '') return CREATE_PDF_DEFAULT;
-  if(command == '-c' || command == '--companies') return SHOW_COMPANIES;
+  if(command == '-c' || command == '--companies') return LIST_COMPANIES;
   if(command == '-a' || command == '--add-company') return ADD_COMPANY;
 }
 

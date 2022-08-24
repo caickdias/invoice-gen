@@ -37,8 +37,10 @@ npm start
 ## Arguments
 
 ```
-(-c || --companies) to list all companies
-(-a || --add-company) to add a new company via CLI
+(no arguments) - create pdf for the first company in config.yml
+(-c || --companies) - list all companies
+(-a || --add-company) - add a new company via CLI
+([companyId],eg: node index 3) - create pdf for the given company id
 ```
 
 >>>>>>> 0b01d2e (fixing readme)
