@@ -1,5 +1,5 @@
 var yaml_config = require('node-yaml-config');
-var config = yaml_config.load(__dirname + '/config.yml');
+var config = yaml_config.load('./config.yml');
 
 const user = {
     name: config.user.name,
