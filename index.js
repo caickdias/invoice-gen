@@ -1,10 +1,12 @@
 const info = require('./utils/gen-data.js');
 const { user, companies, invoice, items } = info;
 
-const { 
-  createPdf, 
+const {   
   listCompanies, 
-  addCompany 
+  createPdfDefault,
+  createPdfCompany,
+  addCompany,
+  showError,
 } = require('./utils/functions.js');
 
 const LIST_COMPANIES = 'showCompanies';
@@ -16,36 +18,30 @@ const DELETE_COMPANY = 'deleteCompany';
 
 const handleArgs = (arg) => {
   const command = getCommand(arg);
-  let defaultId = 0;
+ 
   
   switch(command){
     case LIST_COMPANIES:
-      listCompanies(companies);
+      listCompanies();
       break;
     case ADD_COMPANY:
       addCompany();
       break;
     case CREATE_PDF_DEFAULT:      
-      createPdf({
-        ...info,
-        company: companies[defaultId],
-      });
+      createPdfDefault();
       break;
     case CREATE_PDF_COMPANY:
       const companyId = parseInt(arg.join());      
-      createPdf({
-        ...info,
-        company: companies.find(company => company.id == companyId) || companies[0],
-      });
+      createPdfCompany(companyId);
       break;      
     case TOO_MANY_ARGUMENTS:
-      console.log('Too many arguments');
+      showError('Too many arguments');
       break;
     case DELETE_COMPANY:
-
+      showError('delete');
       break;
     default:
-      console.log('opa');
+      console.log('Command not found');
       break;
   }
 
