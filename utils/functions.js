@@ -36,6 +36,16 @@ const createPdf = ({user, company, invoice, items}) => {
     
 }
 
+const listCompanies = (companies) => {
+  companies.forEach(company => {
+    console.log('ID:', company.id);
+    console.log('Name:', company.name);
+    console.log('Address Line 1:', company.addressLine1);
+    console.log('Address LIne 2:', company.addressLine2);
+    console.log('-'.repeat(50));
+  })
+}
+
 const addCompany = () => {    
     const name = prompt('Company name: ');
     const addressLine1 = prompt('Company address line 1: ');
@@ -45,5 +55,6 @@ const addCompany = () => {
 
 module.exports = {
     createPdf,    
+    listCompanies,
     addCompany,
 }

@@ -38,7 +38,7 @@ npm start
 
 ```
 (no arguments) - create pdf for the first company in config.yml
-(-c || --companies) - list all companies
+(-l || --list-companies) - list all companies
 (-a || --add-company) - add a new company via CLI
 ([companyId],eg: node index 3) - create pdf for the given company id
 ```

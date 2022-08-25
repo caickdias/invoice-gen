@@ -1,7 +1,11 @@
 const info = require('./utils/gen-data.js');
 const { user, companies, invoice, items } = info;
 
-const { createPdf, addCompany } = require('./utils/functions.js');
+const { 
+  createPdf, 
+  listCompanies, 
+  addCompany 
+} = require('./utils/functions.js');
 
 const LIST_COMPANIES = 'showCompanies';
 const ADD_COMPANY = 'addCompany';
@@ -16,7 +20,7 @@ const handleArgs = (arg) => {
   
   switch(command){
     case LIST_COMPANIES:
-      console.log(companies);
+      listCompanies(companies);
       break;
     case ADD_COMPANY:
       addCompany();
@@ -37,6 +41,9 @@ const handleArgs = (arg) => {
     case TOO_MANY_ARGUMENTS:
       console.log('Too many arguments');
       break;
+    case DELETE_COMPANY:
+
+      break;
     default:
       console.log('opa');
       break;
@@ -48,8 +55,9 @@ const getCommand = (command) => {
   if(command.length > 1) return TOO_MANY_ARGUMENTS;
   if(/^\d+$/.test(command)) return CREATE_PDF_COMPANY;
   if(command == '') return CREATE_PDF_DEFAULT;
-  if(command == '-c' || command == '--companies') return LIST_COMPANIES;
+  if(command == '-l' || command == '--list-companies') return LIST_COMPANIES;
   if(command == '-a' || command == '--add-company') return ADD_COMPANY;
+  if(command == '-d' || command == '--delete-company') return DELETE_COMPANY;
 }
 
 handleArgs(process.argv.slice(2));
