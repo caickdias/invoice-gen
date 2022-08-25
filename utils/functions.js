@@ -71,7 +71,21 @@ const addCompany = () => {
     console.log('Company added');
 }
 
-const showError = (message) => {
+const deleteCompany = id => {
+
+  console.log(id);
+  const newConfig = {
+    'default': {
+        ...config,
+        companies: companies.filter(company => company.id != id)        
+    }
+}    
+
+let yamlStr = yaml.dump(newConfig);
+fs.writeFileSync('config.yml', yamlStr, 'utf8');
+}
+
+const throwError = (message) => {
   console.log(message);
 }
 
@@ -80,5 +94,6 @@ module.exports = {
     createPdfDefault,
     createPdfCompany,
     addCompany,
-    showError,
+    deleteCompany,
+    throwError,
 }

@@ -6,20 +6,22 @@ const {
   createPdfDefault,
   createPdfCompany,
   addCompany,
-  showError,
+  deleteCompany,
+  throwError,
 } = require('./utils/functions.js');
 
-const LIST_COMPANIES = 'showCompanies';
-const ADD_COMPANY = 'addCompany';
-const CREATE_PDF_DEFAULT = 'createPdfDefault';
-const CREATE_PDF_COMPANY = 'createPdfCompany';
-const TOO_MANY_ARGUMENTS = 'tooManyArguments';
-const DELETE_COMPANY = 'deleteCompany';
+const {
+  LIST_COMPANIES,
+  ADD_COMPANY,
+  CREATE_PDF_DEFAULT,
+  CREATE_PDF_COMPANY,
+  TOO_MANY_ARGUMENTS,
+  DELETE_COMPANY,
+} = require('./actions');
 
-const handleArgs = (arg) => {
+const handleArgs = (arg) => {  
   const command = getCommand(arg);
- 
-  
+
   switch(command){
     case LIST_COMPANIES:
       listCompanies();
@@ -35,25 +37,27 @@ const handleArgs = (arg) => {
       createPdfCompany(companyId);
       break;      
     case TOO_MANY_ARGUMENTS:
-      showError('Too many arguments');
+      throwError('Too many arguments');
       break;
     case DELETE_COMPANY:
-      showError('delete');
+      const deleteId = parseInt(arg[1])
+      deleteCompany(deleteId);      
       break;
     default:
-      console.log('Command not found');
+      throwError('Command not found');
       break;
   }
-
 }
 
 const getCommand = (command) => {
-  if(command.length > 1) return TOO_MANY_ARGUMENTS;
+  if(command.length > 1){
+    if(command. length == 2 && (command[0] == '-d' || command[0] == '--delete-company')) return DELETE_COMPANY;
+    return TOO_MANY_ARGUMENTS;
+  } 
   if(/^\d+$/.test(command)) return CREATE_PDF_COMPANY;
   if(command == '') return CREATE_PDF_DEFAULT;
   if(command == '-l' || command == '--list-companies') return LIST_COMPANIES;
-  if(command == '-a' || command == '--add-company') return ADD_COMPANY;
-  if(command == '-d' || command == '--delete-company') return DELETE_COMPANY;
+  if(command == '-a' || command == '--add-company') return ADD_COMPANY;  
 }
 
 handleArgs(process.argv.slice(2));
