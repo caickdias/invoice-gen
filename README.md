@@ -26,11 +26,6 @@ Then run npm install to install dependencies
 npm install
 ```
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-## Executing program
-=======
-=======
 If you're on Ubuntu and find problems with dlfc_load, execute the command below:
 
 ```
