@@ -9,6 +9,7 @@
   "author": "Caick Andrade",
   "license": "ISC",
   "dependencies": {
+    "js-yaml": "^4.1.0",
     "node-yaml-config": "^1.0.0",
     "pdf-creator-node": "^2.3.5",
     "prompt-sync": "^4.2.0"
