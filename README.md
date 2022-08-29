@@ -27,9 +27,24 @@ npm install
 ```
 
 <<<<<<< HEAD
+<<<<<<< HEAD
 ## Executing program
 =======
+=======
+If you're on Ubuntu and find problems with dlfc_load, execute the command below:
+
+```
+export OPENSSL_CONF=/dev/null
+```
+
 ## Usage
+
+Create a copy of the "config-example.yml" file and name it "config.yml". You can do that with the following commands:
+
+```
+WINDOWS: copy config-example.yml config-yml
+UNIX: cp config-example.yml config-yml
+```
 
 Go to "config.yml" file and edit your information. After that, navigate to your current folder and do command below to generate "invoice.pdf" in the same folder.
 
@@ -37,8 +52,6 @@ Go to "config.yml" file and edit your information. After that, navigate to your 
 npm start
 ```
 
-<<<<<<< HEAD
-=======
 ## Arguments
 
 ```
