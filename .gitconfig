@@ -1,0 +1,7 @@
+[user]
+	email = caickandrade0@gmail.com
+	name = caickdias
+[credential]
+	helper = wincred
+[core]
+	editor = winpty nano
