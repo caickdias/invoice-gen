@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html>
+{{#ifCond user.os '!=' 'win32'}}<html style="zoom: 0.753;">
+{{/ifCond}}
     <head>
         <title>Caick Andrade</title>    
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -73,7 +74,7 @@
             </div>                                         
         </div>
 
-        <div style="width: 100%; height: 3px; background-color: #030054; margin-top: 200px;">                                     
+        <div style="width: 100%; height: 3px; background-color: #030054; margin-top: 200px;">                                                
         </div>
 
         <div style="line-height: 10px; padding-left: 0px; ">
@@ -126,73 +127,79 @@
 
         {{/each}}
 
-                                                                 
-      
         <div style=" padding-left: 15px;">
-            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
+            <div style="float: left; width: 55%;">
+                <p>{{null}}</p>                                                                                           
             </div>                             
 
-            <div style="float: left; width: 45%; text-align: center; height: 30px;">
-                <div style="float: left; width: 33%; height: 1px;">                                         
+            <div style="float: left; width: 45%; text-align: start;">
+                <div style="float: left; width: 33%;">                         
+                    <p>{{null}}</p>                                                                                           
                 </div>
 
-                <div style="float: left; width: 33%; text-align: start;">
-                    <p>Subtotal: </p>             
+                <div style="float: left; width: 33%">
+                    <p>Subtotal</p>                                                                                           
                 </div>                                                                
 
-                <div style="float: left; width: 33%; text-align: start;">
-                    <p>{{ invoice.subtotal }}</p>             
+                <div style="float: left; width: 33%">
+                    <p>{{ invoice.subtotal }}</p>                                                                                                
                 </div>                
             </div>    
         </div>
 
         <div style=" padding-left: 15px;">
-            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
+            <div style="float: left; width: 55%;">
+                <p>{{null}}</p>                                                                                           
             </div>                             
 
-            <div style="float: left; width: 45%;  height: 30px;">
-                <div style="float: left; width: 33%; height: 1px;">                                         
+            <div style="float: left; width: 45%; text-align: start;">
+                <div style="float: left; width: 33%;">                         
+                    <p>{{null}}</p>                                                                                           
                 </div>
 
-                <div style="float: left; width: 33%; text-align: start;">
-                    <p>Tax: </p>             
+                <div style="float: left; width: 33%">
+                    <p>Tax</p>                                                                                           
                 </div>                                                                
 
-                <div style="float: left; width: 33%; text-align: start;">
-                    <p>{{ invoice.tax }}</p>             
+                <div style="float: left; width: 33%">
+                    <p>{{ invoice.tax }}</p>                                                                                                
                 </div>                
             </div>    
-        </div>    
-        
-        <div style=" padding-left: 15px;">
-            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
-            </div>                              
+        </div>            
 
-            <div style="float: left; width: 45%; text-align: center; height: 30px;">
-                <div style="float: left; width: 33%; height: 1px;">                                        
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%;">
+                <p>{{null}}</p>                                                                                           
+            </div>                             
+
+            <div style="float: left; width: 45%; text-align: start;">
+                <div style="float: left; width: 33%;">                         
+                    <p>{{null}}</p>                                                                                           
                 </div>
 
                 <div style="float: left; width: 66%; height: 1px; background-color: #030054; margin-top: 20px;">                                     
-                </div>                        
-            </div>    
-        </div>
-
-        <div style=" padding-left: 15px;">
-            <div style="float: left; width: 55%; height: 1px;">                                                                                                             
-            </div>                              
-
-            <div style="float: left; width: 45%; text-align: center;">
-                <div style="float: left; width: 33%; height: 1px;">                                         
-                </div>
-
-                <div style="float: left; width: 33%; text-align: start;">
-                    <p>Total: </p>             
-                </div>                                                                
-
-                <div style="float: left; width: 33%; text-align: start;">
-                    <p>{{ invoice.total }}</p>             
                 </div>                
             </div>    
-        </div>          
+        </div>  
+
+        <div style=" padding-left: 15px;">
+            <div style="float: left; width: 55%;">
+                <p>{{null}}</p>                                                                                           
+            </div>                             
+
+            <div style="float: left; width: 45%; text-align: start;">
+                <div style="float: left; width: 33%;">                         
+                    <p>{{null}}</p>                                                                                           
+                </div>
+
+                <div style="float: left; width: 33%">
+                    <p>Total</p>                                                                                           
+                </div>                                                                
+
+                <div style="float: left; width: 33%">
+                    <p>{{ invoice.total }}</p>                                                                                                
+                </div>                
+            </div>    
+        </div>           
     </body>
 </html>

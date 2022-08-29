@@ -5,7 +5,8 @@ const user = {
     name: config.user.name,
     addressLine1: config.user.addressLine1,
     addressLine2: config.user.addressLine2,
-    phone: config.user.phone
+    phone: config.user.phone,
+    os: process.platform,
 }
 
 const companies = config.companies;

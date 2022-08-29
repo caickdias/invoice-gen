@@ -26,7 +26,12 @@ Then run npm install to install dependencies
 npm install
 ```
 
+<<<<<<< HEAD
 ## Executing program
+=======
+## Usage
+
+Go to "config.yml" file and edit your information. After that, navigate to your current folder and do command below to generate "invoice.pdf" in the same folder.
 
 ```
 npm start
@@ -44,7 +49,6 @@ npm start
 (companyId),eg: node index 3 - create pdf for the given company id
 ```
 
->>>>>>> 0b01d2e (fixing readme)
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
