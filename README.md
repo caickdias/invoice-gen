@@ -52,7 +52,6 @@ npm start
 ```
 (no arguments) - create pdf for the first company in config.yml
 (-l || --list-companies) - list all companies
-(-a || --add-company) - add a new company via CLI
 (-d [COMPANYID] || --delete-company [COMPANYID]) - delete company with given id
 (companyId),eg: node index 3 - create pdf for the given company id
 ```
